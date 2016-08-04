@@ -1,1 +1,2 @@
-include ':app', ':designmode', ':cacheutil', ':recycleview'
+include ':rxandroiddemo', ':annotationdemo'
+//include ':app', ':designmode', ':cacheutil', ':recycleview', ':rxandroiddemo'
