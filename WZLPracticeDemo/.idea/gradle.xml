@@ -9,7 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/annotationdemo" />
+            <option value="$PROJECT_DIR$/facecheck" />
             <option value="$PROJECT_DIR$/kotlintest" />
+            <option value="$PROJECT_DIR$/objectanimator" />
             <option value="$PROJECT_DIR$/rxandroiddemo" />
           </set>
         </option>

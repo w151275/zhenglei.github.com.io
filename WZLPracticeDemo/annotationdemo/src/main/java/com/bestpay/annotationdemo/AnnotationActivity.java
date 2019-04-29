@@ -3,9 +3,13 @@ package com.bestpay.annotationdemo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.bestpay.annotationdemo.annotation.TestAnnotation;
 import com.bestpay.annotationdemo.util.AnnotationUtil;
+import com.ccit.SecureCredential.CoreComponent.SoftMethods;
+import com.ccit.SecureCredential.bean.ResultVo;
+import com.ccit.SecureCredential.sdk.SDKImpl;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
@@ -29,21 +33,40 @@ public class AnnotationActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        try {
-            Class clazz = Class.forName("com.bestpay.annotationdemo.util.AnnotationUtil");
-            Method[] methods = clazz.getDeclaredMethods();
-            for(Method method :methods){
-                Annotation[] annotations = method.getAnnotations();
-                if(annotations.length > 0){
-                    for(Annotation annotation :annotations){
-                        Log.i("ANNOTATION",""+method.getName()+"Annotation"+annotation.annotationType());
+        findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+//                ResultVo resultVo = SDKImpl.getIntence(App.context()).initSDK(account,
+//                        UrlConfiguration.getInstance().getEnv().getCaUrl(), randomNum, null);
+                            SoftMethods softMethods =  SoftMethods.getInstance();
+                            ResultVo resultVo = SDKImpl.getIntence(AnnotationActivity.this).initSDK("18621644592",
+                                    "", "", null, "", "1");
+                           String  resultCode = resultVo.getResultCode();
+                        } catch (Throwable e) {
+                        }
                     }
-                }
-
+                });
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        });
+//        try {
+//            Class clazz = Class.forName("com.bestpay.annotationdemo.util.AnnotationUtil");
+//            Method[] methods = clazz.getDeclaredMethods();
+//            for(Method method :methods){
+//                Annotation[] annotations = method.getAnnotations();
+//                if(annotations.length > 0){
+//                    for(Annotation annotation :annotations){
+//                        Log.i("ANNOTATION",""+method.getName()+"Annotation"+annotation.annotationType());
+//                    }
+//                }
+//
+//            }
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
     }
 
 }

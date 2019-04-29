@@ -26,6 +26,7 @@ class KotlinTest : Activity(){
         filterList()
         ustMapOrList()
         useWenhao()
+        var d = DataClass(1)
     }
 
     var a :Int = 0
@@ -153,6 +154,26 @@ class KotlinTest : Activity(){
         with(personModel){
             penDown()
             turn(23.3)
+        }
+    }
+
+    //break continue 操作符的使用
+    fun useBreakOrContinue(){
+        abc@ for(a in 1..20){
+             if(a == 4){
+//                continue@loop
+            }
+
+            if(a == 5){
+//                break@loop
+            }
+
+            if(a == 7){
+                continue@abc
+            }
+            if(a == 9){
+                break@abc
+            }
         }
     }
 

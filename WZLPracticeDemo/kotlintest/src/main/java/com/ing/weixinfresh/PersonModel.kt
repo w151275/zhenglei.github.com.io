@@ -5,7 +5,11 @@ package com.ing.weixinfresh
  * Created by Ing. Wu on 2018/1/9.
  */
 
-class PersonModel(var s :String) {
+class PersonModel constructor(var s :String) {
+
+    constructor(a:Int,b :Int) :this(""){
+
+    }
 
     //属性声明：var <propertyName>: <PropertyType> [= <property_initializer>]
 //              [<getter>]
@@ -31,4 +35,6 @@ class PersonModel(var s :String) {
     fun penUp(){}
     fun turn(degrees: Double){}
     fun forward(pixels: Double){}
+
+
 }

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.bestpay.rxandroiddemo.bean.Course;
 import com.bestpay.rxandroiddemo.bean.Student;
@@ -35,24 +37,25 @@ public class RxAndroidActivity extends Activity {
     private final String TAG = "RxAndroid";
 
     private Student student;
+    int i = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        subscribe();
-        student = new Student();
-        student.setCourse(new Course("数学","20"));
-        Observable.just(student).flatMap(new Func1<Student, Observable<Course>>() {
-            @Override
-            public Observable<Course> call(Student student) {
-                return Observable.just(student.getCourse());
-            }
-        }).subscribe(new Action1<Course>() {
-            @Override
-            public void call(Course course) {
-                Log.i(TAG,"name=="+course.getName());
-            }
-        });
+//        student = new Student();
+//        student.setCourse(new Course("数学","20"));
+//        Observable.just(student).flatMap(new Func1<Student, Observable<Course>>() {
+//            @Override
+//            public Observable<Course> call(Student student) {
+//                return Observable.just(student.getCourse());
+//            }
+//        }).subscribe(new Action1<Course>() {
+//            @Override
+//            public void call(Course course) {
+//                Log.i(TAG,"name=="+course.getName());
+//            }
+//        });
     }
 
     /**

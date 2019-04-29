@@ -1,2 +1,2 @@
-include ':rxandroiddemo', ':annotationdemo', ':kotlintest'
+include ':rxandroiddemo', ':annotationdemo', ':kotlintest', ':objectanimator', ':facecheck'
 //include ':app', ':designmode', ':cacheutil', ':recycleview', ':rxandroiddemo'
